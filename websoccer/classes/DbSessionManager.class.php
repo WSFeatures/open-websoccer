@@ -151,18 +151,13 @@ class DbSessionManager implements SessionHandlerInterface {
 		$expiry = $this->_websoccer->getNowAsTimestamp() + $lifetime;
 		
 		$fromTable = $this->_websoccer->getConfig('db_prefix') . '_session';
-		$columns['session_data'] = $data;
-		$columns['expires'] = $expiry;
+		$columns = [
+			'session_id' => $sessionId,
+			'session_data' => $data,
+			'expires' => $expiry
+		];
 		
-		// either insert or update
-		if ($this->validate_sid($sessionId)) {
-			$whereCondition = 'session_id = \'%s\'';
-			
-			$this->_db->queryUpdate($columns, $fromTable, $whereCondition, $sessionId);
-		} else if(!empty($data)) {
-			$columns['session_id'] = $sessionId;
-			$this->_db->queryInsert($columns, $fromTable);
-		}
+		$this->_db->queryInsert($columns, $fromTable, true);
 		return true;
 	}
 	
