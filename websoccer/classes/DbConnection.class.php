@@ -176,11 +176,25 @@ class DbConnection {
 	 *
 	 * @param array $columns List of columns with values to store in new item. Array with key=DB column name, value=new value to store.
 	 * @param string $fromTable Name of table to select, including prefix.
+	 * @param bool $onDuplicateUpdate If true, appends ON DUPLICATE KEY UPDATE clause to update existing rows.
 	 */
-	public function queryInsert($columns, $fromTable) {
+	public function queryInsert($columns, $fromTable, $onDuplicateUpdate = false) {
 		$queryStr = 'INSERT ' . $fromTable . ' SET ';
-		
-		$queryStr = $queryStr . $this->buildColumnsValueList($columns);
+		$queryStr .= $this->buildColumnsValueList($columns);
+
+		if ($onDuplicateUpdate) {
+			$queryStr .= ' ON DUPLICATE KEY UPDATE ';
+			$updateStr = '';
+			$first = true;
+			foreach ($columns as $dbName => $value) {
+				if (!$first) {
+					$updateStr .= ', ';
+				}
+				$updateStr .= $dbName . ' = VALUES(' . $dbName . ')';
+				$first = false;
+			}
+			$queryStr .= $updateStr;
+		}
 		
 		$this->executeQuery($queryStr);
 	}
