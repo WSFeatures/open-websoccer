@@ -548,9 +548,10 @@ CREATE TABLE ws3_transfer (
 
 CREATE TABLE ws3_session (
   session_id CHAR(32) NOT NULL PRIMARY KEY,
-  session_data TEXT NOT NULL,
-  expires INT(11) NOT NULL
-)  DEFAULT CHARSET=utf8, ENGINE=InnoDB;
+  session_data TEXT NOT NULL DEFAULT '',
+  expires INT(11) NOT NULL,
+  INDEX idx_expires (expires)
+) DEFAULT CHARSET=utf8mb4, ENGINE=InnoDB;
 
 CREATE TABLE ws3_matchreport (
   id INT(10) NOT NULL AUTO_INCREMENT PRIMARY KEY,
