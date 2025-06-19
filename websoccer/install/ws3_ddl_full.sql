@@ -244,6 +244,7 @@ CREATE TABLE ws3_spieler (
   lending_owner_id INT(10) NULL,
   age TINYINT(3) NULL,
   status ENUM('1','0') NOT NULL DEFAULT '0'
+  UNIQUE KEY unique_fullname (vorname, nachname)
 ) DEFAULT CHARSET=utf8, ENGINE=InnoDB;
 
 CREATE TABLE ws3_transfer_angebot (
