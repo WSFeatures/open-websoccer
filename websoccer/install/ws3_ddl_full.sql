@@ -419,6 +419,7 @@ CREATE TABLE ws3_spieler (
   lending_owner_id INT(10) NULL,
   age TINYINT(3) NULL,
   status ENUM('1','0') NOT NULL DEFAULT '0',
+  CONSTRAINT UC_spieler UNIQUE (vorname,nachname),
   INDEX spieler_transfermarkt_ende (transfermarkt, transfer_ende)
 ) DEFAULT CHARSET=utf8, ENGINE=InnoDB;
 
