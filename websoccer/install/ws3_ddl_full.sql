@@ -734,7 +734,7 @@ CREATE TABLE ws3_transfer (
 
 CREATE TABLE ws3_session (
   session_id CHAR(32) NOT NULL PRIMARY KEY,
-  session_data TEXT NOT NULL,
+  session_data TEXT NOT NULL DEFAULT (''),
   expires INT(11) NOT NULL,
   INDEX session_expires (expires)
 )  DEFAULT CHARSET=utf8, ENGINE=InnoDB;
