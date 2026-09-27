@@ -218,6 +218,27 @@ elseif ($show == 'select') {
 					}
 					$sponsorres->free();
 				}
+			// pay sponsor platz 2
+				if ($rank === 2 && $team['sponsor_id']) {
+				$sponsorres = $db->querySelect('name, b_platz2', $conf['db_prefix'] .'_sponsor', 'id = %d', $team['sponsor_id']);
+				$sponsor = $sponsorres->fetch_array();
+				if ($sponsor) {
+				BankAccountDataService::creditAmount($website, $db, $team['id'], $sponsor['b_platz2'],
+				'sponsor_championship_bonus_subject', $sponsor['name']);
+				}
+				$sponsorres->free();
+				}
+
+				// pay sponsor platz 3
+				if ($rank === 3 && $team['sponsor_id']) {
+				$sponsorres = $db->querySelect('name, b_platz3', $conf['db_prefix'] .'_sponsor', 'id = %d', $team['sponsor_id']);
+				$sponsor = $sponsorres->fetch_array();
+				if ($sponsor) {
+				BankAccountDataService::creditAmount($website, $db, $team['id'], $sponsor['b_platz3'],
+				'sponsor_championship_bonus_subject', $sponsor['name']);
+				}
+				$sponsorres->free();
+				}
 			}
 			
 			// move to new league

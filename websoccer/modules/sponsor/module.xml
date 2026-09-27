@@ -55,6 +55,8 @@
 					<field id="b_heimzuschlag" type="number" required="true" />
 					<field id="b_sieg" type="number" required="true" />
 					<field id="b_meisterschaft" type="number" required="true" />
+                    <field id="b_platz2" type="number" required="true" />
+					<field id="b_platz3" type="number" required="true" />
 					<field id="max_teams" type="number" required="true" />
 					<field id="min_platz" type="number" required="true" />
 					<field id="bild" type="file" />

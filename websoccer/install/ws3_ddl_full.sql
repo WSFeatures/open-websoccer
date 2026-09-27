@@ -478,6 +478,8 @@ CREATE TABLE ws3_sponsor (
   b_heimzuschlag INT(10) NOT NULL,
   b_sieg INT(10) NOT NULL,
   b_meisterschaft INT(10) NOT NULL,
+  b_platz2 INT( 10 ) NOT NULL,
+  b_platz3 INT( 10 ) NOT NULL,
   max_teams SMALLINT(5) NOT NULL,
   min_platz TINYINT(3) NOT NULL
 ) DEFAULT CHARSET=utf8, ENGINE=InnoDB;

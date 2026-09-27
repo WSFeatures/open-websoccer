@@ -9,6 +9,8 @@
   <message id="entity_sponsor_b_heimzuschlag">Bonificación por partido en casa</message>
   <message id="entity_sponsor_b_sieg">Bono por victoria</message>
   <message id="entity_sponsor_b_meisterschaft">Bonus al ganar el campeonato</message>
+  <message id="entity_sponsor_b_platz2">Bono por segundo lugar</message>
+	<message id="entity_sponsor_b_platz3">Bono por tercer lugar</message>
   <message id="entity_sponsor_max_teams">Número máximo de equipos</message>
   <message id="entity_sponsor_min_platz">Rango mínimo en la liga</message>
 </messages>

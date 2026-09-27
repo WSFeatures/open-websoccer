@@ -9,6 +9,8 @@
 	<message id="entity_sponsor_b_heimzuschlag">Zuschlag bei Heimspielen</message>
 	<message id="entity_sponsor_b_sieg">Zuschlag bei Sieg</message>
 	<message id="entity_sponsor_b_meisterschaft">Zuschlag bei Gewinn der Meisterschaft</message>
+	<message id="entity_sponsor_b_platz2">Zuschlag bei Platz 2</message>
+	<message id="entity_sponsor_b_platz3">Zuschlag bei Platz 3</message>
 	<message id="entity_sponsor_max_teams">Höchstanzahl an Teams</message>
 	<message id="entity_sponsor_min_platz">Mindestplatzierung</message>
 </messages>
